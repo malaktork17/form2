@@ -1,121 +1,158 @@
 <!DOCTYPE html>
-<html lang="ar">
-
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Styled Form</title>
-  <style>
-    /* جسم الصفحة */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malak Tork | التسجيل والبيانات الأساسية</title>
+<style> body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 15px;
+        }
 
-    /* صندوق الفورم */
-    .form-container {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      width: 350px;
-    }
+        .main-card {
+            background: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06); /* ظل ناعم */
+        }
 
-    /* عنوان الفورم */
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #333;
-    }
+        h1 { text-align: center; color: #1a1a1a; margin-bottom: 35px; }
 
-    /* كل حقل */
-    .form-group {
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-    }
+        /* --- تنسيق المسافات والتعليقات --- */
+        .form-group {
+            margin-bottom: 22px; /* مسافة واضحة بين الأجزاء */
+        }
 
-    /* عنوان الحقل */
-    .form-group label {
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #555;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
 
-    /* حقول الإدخال */
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-      transition: all 0.3s;
-      font-size: 14px;
-    }
+        input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), 
+        select, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 12px; /* حواف دائرية أنيقة */
+            font-size: 1rem;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
 
-    /* تأثير التركيز */
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: #4a90e2;
-      box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
-    }
+        input:focus {
+            outline: none;
+            border-color: #000; /* تغيير اللون للأسود في التركيز لشكل فخم */
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
 
-    /* زر الإرسال */
-    .form-container button {
-      width: 100%;
-      padding: 12px;
-      background: #4a90e2;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-    .form-container button:hover {
-      background: #357ABD;
-    }
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-    /* نص مساعدة أو ملاحظات */
-    .form-help {
-      font-size: 12px;
-      color: #999;
-      margin-top: -15px;
-      margin-bottom: 15px;
-    }
-  </style>
+        .btn-submit { background: #000; color: #fff; }
+        .btn-submit:hover { background: #333; }
+        
+        .btn-reset { background: #eee; color: #555; }</style>
 </head>
-
 <body>
 
-  <div class="form-container">
-    <h2>تسجيل دخول</h2>
-    <form action="mailto:malak2rk18@gmail.com" method="post" enctype="text/plain">
-      <div class="form-group">
-        <label for="name">الاسم</label>
-        <input type="text" id="name" placeholder="أدخل اسمك">
-      </div>
+    <div class="main-card">
+        <h1>بيانات الحساب الشخصي ✨</h1>
+        
+        <form action="#" method="POST">
 
-      <div class="form-group">
-        <label for="email">البريد الإلكتروني</label>
-        <input type="email" id="email" placeholder="أدخل بريدك">
-      </div>
+            <div class="form-group">
+                <label for="full-name">الاسم بالكامل:</label>
+                <input type="text" id="full-name" name="user_name" placeholder="ملاك ترك" required>
+            </div>
 
-      <div class="form-group">
-        <label for="message">الرسالة</label>
-        <textarea id="message" rows="4" placeholder="اكتب رسالتك"></textarea>
-      </div>
+            <div class="form-group">
+                <label for="age">السن (Number):</label>
+                <input type="number" id="age" name="user_age" min="10" max="100" value="20">
+            </div>
 
-      <button type="submit">إرسال</button>
-    </form>
-  </div>
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني (Email):</label>
+                <input type="email" id="email" name="user_email" placeholder="mail@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pass">كلمة المرور (Password):</label>
+                <input type="password" id="pass" name="user_password" placeholder="أدخل كلمة مرور قوية" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">رقم الهاتف (Tel):</label>
+                <input type="tel" id="phone" name="user_phone" placeholder="01XXXXXXXXX">
+            </div>
+
+            <div class="form-group">
+                <label for="website">رابط موقعك الحالي (URL):</label>
+                <input type="url" id="website" name="user_site" placeholder="https://malaktork.com">
+            </div>
+
+
+            <div class="form-group">
+                <label for="brand-color">اختر لونك المفضل (Color):</label>
+                <input type="color" id="brand-color" name="fav_color" value="#000000" style="height: 45px; padding: 5px; cursor: pointer;">
+            </div>
+
+            <div class="form-group">
+                <label for="skill-level">مستوى المهارة (Range):</label>
+                <input type="range" id="skill-level" name="skill_range" min="0" max="100" step="5">
+            </div>
+
+
+            <div class="form-group">
+                <label for="job-title">المسمى الوظيفي (Select):</label>
+                <select id="job-title" name="job">
+                    <option value="ui">UI Designer</option>
+                    <option value="dev">Web Developer</option>
+                    <option value="full">Full Stack</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>اللغة المفضلة (Checkbox):</p>
+                <input type="checkbox" id="ar" name="lang" value="ar" checked> <label style="display:inline;" for="ar">العربية</label>
+                &nbsp;
+                <input type="checkbox" id="en" name="lang" value="en"> <label style="display:inline;" for="en">الإنجليزية</label>
+            </div>
+
+
+            <div class="form-group">
+                <label for="start-date">تاريخ البدء (Date):</label>
+                <input type="date" id="start-date" name="start_date">
+            </div>
+
+
+            <div class="btn-group">
+                <button type="submit" class="btn-submit">حفظ البيانات 🚀</button>
+                <button type="reset" class="btn-reset">إعادة تعيين</button>
+            </div>
+
+        </form>
+    </div>
 
 </body>
-
 </html>
